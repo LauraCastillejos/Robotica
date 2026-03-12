@@ -1,8 +1,14 @@
-import math
+import roboticstoolbox as rtb
+import numpy as np
 
-r = float(input("Radio del círculo: "))
-perimetro = 2 * math.pi * r
-area = math.pi * r**2
+#print(f"robotics toolbox version: {rtb._version_}")
+#print(f"numpy version: {np._version_}")
 
-print(f"Perímetro: {perimetro:.2f}")
-print(f"Área: {area:.2f}")
+robot = rtb.models.DH.Puma560()
+
+q=[0,0,0,0,0,0]
+
+#robot.plot(q, block=True, backend='pyplot')
+
+robot.teach(q)
+
